@@ -1,0 +1,124 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# IDE / Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Testing
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.cache
+coverage.xml
+*.cover
+.hypothesis/
+
+# Logs
+*.log
+logs/
+
+# Temporary / test artifacts
+_tmp/
+_tmp.*
+*.tmp
+*.bak
+*.swp
+
+# Output samples (samples are kept; only test artifacts excluded)
+examples/*/output/_test*/
+examples/*/output/_tmp*/
+examples/*/output/_merge_test*
+examples/*/output/_split_test*
+examples/*/output/_test_split*
+examples/*/output/_test_*
+examples/*/output/_debug*
+examples/*/output/*.tmp
+
+# Local secrets / config
+.env
+.env.local
+*.local.json
+secrets.yaml
+
+# OS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+ehthumbs_view.db
+Thumbs.lok
+
+# Editors backup
+*.bak
+*.swp
+*.swo
+*~
+*.orig
+
+# Project specific
+# 但保留 examples/ 作为样例参考
+# 实际产物由 orchestrate 重新生成,不进 git
+examples/demo_output/
+examples/sample_deck/output/
+examples/*/output/
+
+# AI / Editor agent 临时目录
+.codegraph/
+.omo/
+.assistant/
+.opencode/
+.cursor/
+.aider/
+.cody/
+
+# Editor 配置(项目级,不入仓)
+.editorconfig
+.vscode/
+.idea/
+
+# pytest 缓存
+.pytest_cache/
+
+# mypy / ruff 缓存
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+*.cover

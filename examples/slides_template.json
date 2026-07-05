@@ -1,0 +1,111 @@
+{
+  "_doc": "PPT 工作流输入模板(AI/人工填这个,就能跑完整 10 步流水线)",
+  "_usage": "复制为 input/slides.json 后填入真实内容,执行 orchestrate.py 即可",
+  "_hints": {
+    "section": "context(背景) / challenge(问题) / insight(洞察) / solution(方案) / evidence(证据) / action(行动)",
+    "title": "建议用判断句(带数字/方向),不要中性描述。例如:'我们正站在办公方式变革的拐点'而不是'项目介绍'",
+    "points": "2-4 个要点,每个一行",
+    "chart_needed": "true if 该页需要图表(填 chart_type)",
+    "viz_type": "无 / 流程图 / 对比栏 / 大数字 / 时间线 / 金句页"
+  },
+
+  "theme": "智能办公套件 V1.0",
+  "audience": "公司管理层",
+  "scenario": "2026 年中评审",
+
+  "slides": [
+    {
+      "_example": "页 1: 背景段",
+      "section": "context",
+      "title": "我们正站在办公方式变革的拐点",
+      "points": [
+        "远程协作成为常态",
+        "AI 工具迅速普及",
+        "效率瓶颈显现"
+      ],
+      "evidence": "数据",
+      "chart_needed": false,
+      "chart_type": "",
+      "viz_type": "无",
+      "source": "行业报告 2026",
+      "minutes": 2
+    },
+    {
+      "_example": "页 2: 问题段(用大数字突出痛点)",
+      "section": "challenge",
+      "title": "员工每天浪费 30 分钟在文件检索上",
+      "points": [
+        "检索耗时",
+        "工具分散",
+        "知识难沉淀"
+      ],
+      "evidence": "调研",
+      "chart_needed": false,
+      "viz_type": "大数字",
+      "source": "内部调研 2026Q2",
+      "minutes": 2
+    },
+    {
+      "_example": "页 3: 洞察段(用图表支撑)",
+      "section": "insight",
+      "title": "三件事决定了这次升级势在必行",
+      "points": [
+        "WPS 集成需求迫切",
+        "本地搜索痛点突出",
+        "知识库分散无沉淀"
+      ],
+      "evidence": "案例",
+      "chart_needed": true,
+      "chart_type": "柱状图",
+      "viz_type": "无",
+      "source": "用户访谈",
+      "minutes": 2
+    },
+    {
+      "_example": "页 4: 方案段(用流程图)",
+      "section": "solution",
+      "title": "套件以 Agent + 工具融合为核心",
+      "points": [
+        "AionUI 作为统一入口",
+        "Everything + Tesseract 提供本地能力",
+        "Obsidian 提供知识沉淀"
+      ],
+      "evidence": "案例",
+      "chart_needed": false,
+      "viz_type": "流程图",
+      "source": "架构设计",
+      "minutes": 2
+    },
+    {
+      "_example": "页 5: 证据段(用对比栏,前/后)",
+      "section": "evidence",
+      "title": "试点数据显示检索效率提升 360 倍",
+      "points": [
+        "检索时间从 30min 降到 5s",
+        "用户满意度 4.7 分",
+        "知识沉淀量增加 5 倍"
+      ],
+      "evidence": "数据",
+      "chart_needed": true,
+      "chart_type": "折线图",
+      "viz_type": "对比栏",
+      "source": "试点报告",
+      "minutes": 2
+    },
+    {
+      "_example": "页 6: 行动段(CTA:谁、何时、做什么)",
+      "section": "action",
+      "title": "Q4 前完成全员部署,需批 50 万预算",
+      "points": [
+        "8 月完成 50 人试点",
+        "10 月全员上线",
+        "12 月收反馈迭代"
+      ],
+      "evidence": "行动",
+      "chart_needed": false,
+      "viz_type": "无",
+      "source": "项目计划",
+      "minutes": 1.5
+    }
+  ]
+}

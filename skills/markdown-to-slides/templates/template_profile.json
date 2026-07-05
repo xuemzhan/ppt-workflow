@@ -1,0 +1,11 @@
+{
+  "primary_color": "1E2761",
+  "secondary_color": "CADCFC",
+  "accent_color": "F96167",
+  "text_dark": "212121",
+  "text_light": "FFFFFF",
+  "header_font": "Microsoft YaHei",
+  "body_font": "Microsoft YaHei",
+  "slide_size": "16:9",
+  "_comment": "Midnight Executive 主题色:深蓝 + 冰蓝 + 珊瑚红。Microsoft YaHei 兼容中英文。"
+}

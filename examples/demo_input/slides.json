@@ -1,0 +1,93 @@
+{
+  "theme": "智能办公套件 V1.0",
+  "audience": "公司管理层",
+  "scenario": "2026 年中评审",
+  "slides": [
+    {
+      "section": "context",
+      "title": "我们正站在办公方式变革的拐点",
+      "points": [
+        "远程协作成为常态",
+        "AI 工具迅速普及",
+        "效率瓶颈显现"
+      ],
+      "evidence": "数据",
+      "chart_needed": false,
+      "viz_type": "无",
+      "source": "行业报告 2026",
+      "minutes": 2
+    },
+    {
+      "section": "challenge",
+      "title": "员工每天浪费 30 分钟在文件检索上",
+      "points": [
+        "检索耗时",
+        "工具分散",
+        "知识难沉淀"
+      ],
+      "evidence": "调研",
+      "chart_needed": false,
+      "viz_type": "无",
+      "source": "内部调研 2026Q2",
+      "minutes": 2
+    },
+    {
+      "section": "insight",
+      "title": "三件事决定了这次升级势在必行",
+      "points": [
+        "WPS 集成需求迫切",
+        "本地搜索痛点突出",
+        "知识库分散无沉淀"
+      ],
+      "evidence": "案例",
+      "chart_needed": true,
+      "chart_type": "柱状图",
+      "viz_type": "无",
+      "source": "用户访谈",
+      "minutes": 2
+    },
+    {
+      "section": "solution",
+      "title": "套件以 Agent + 工具融合为核心",
+      "points": [
+        "AionUI 作为统一入口",
+        "Everything + Tesseract 提供本地能力",
+        "Obsidian 提供知识沉淀"
+      ],
+      "evidence": "案例",
+      "chart_needed": false,
+      "viz_type": "流程图",
+      "source": "架构设计",
+      "minutes": 2
+    },
+    {
+      "section": "evidence",
+      "title": "试点数据显示检索效率提升 360 倍",
+      "points": [
+        "检索时间从 30min 降到 5s",
+        "用户满意度 4.7 分",
+        "知识沉淀量增加 5 倍"
+      ],
+      "evidence": "数据",
+      "chart_needed": true,
+      "chart_type": "柱状图",
+      "viz_type": "对比栏",
+      "source": "试点报告",
+      "minutes": 2
+    },
+    {
+      "section": "action",
+      "title": "Q4 前完成全员部署,需批 50 万预算",
+      "points": [
+        "8 月完成 50 人试点",
+        "10 月全员上线",
+        "12 月收反馈迭代"
+      ],
+      "evidence": "行动",
+      "chart_needed": false,
+      "viz_type": "无",
+      "source": "项目计划",
+      "minutes": 1.5
+    }
+  ]
+}

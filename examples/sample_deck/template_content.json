@@ -1,0 +1,52 @@
+{
+  "theme": {
+    "primary_color": "1E2761",
+    "secondary_color": "CADCFC",
+    "accent_color": "F96167",
+    "header_font": "Microsoft YaHei",
+    "body_font": "Microsoft YaHei"
+  },
+  "slides": [
+    {
+      "layout_index": 0,
+      "layout_name": "封面(Title Slide)",
+      "placeholders": {
+        "0": "智能办公套件 V1.0 阶段性成果",
+        "1": "公司管理层 · 2026 年中评审"
+      }
+    },
+    {
+      "layout_index": 1,
+      "layout_name": "标题+内容",
+      "placeholders": {
+        "0": "我们正站在办公方式变革的拐点",
+        "1": "远程协作成为常态;AI 工具迅速普及;效率瓶颈显现"
+      }
+    },
+    {
+      "layout_index": 1,
+      "layout_name": "标题+内容",
+      "placeholders": {
+        "0": "员工每天浪费 30 分钟在文件检索上",
+        "1": "检索耗时;工具分散;知识难沉淀"
+      }
+    },
+    {
+      "layout_index": 3,
+      "layout_name": "两栏对比(Two Content)",
+      "placeholders": {
+        "0": "升级前 vs 升级后",
+        "1": "升级前:手动检索 30min,工具分散,知识难沉淀",
+        "2": "升级后:Everything 秒级检索,统一 Obsidian Vault,自动 Markdown 归档"
+      }
+    },
+    {
+      "layout_index": 1,
+      "layout_name": "标题+内容",
+      "placeholders": {
+        "0": "Q4 前完成全员部署,需批 50 万预算",
+        "1": "8 月完成 50 人试点;10 月全员上线;12 月收反馈迭代"
+      }
+    }
+  ]
+}
