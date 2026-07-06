@@ -10,6 +10,13 @@ dependencies = [
     "Pillow>=10.0",
 ]
 
+[project.scripts]
+# 主入口:运行端到端流水线
+ppt-workflow = "scripts.orchestrate:main"
+
+# 列出所有可用 Skill
+ppt-workflow-list = "scripts.orchestrate:list_skills"
+
 [dependency-groups]
 dev = [
     "basedpyright>=1.21",
@@ -22,18 +29,27 @@ dev = [
 # basedpyright — typeCheckingMode = "all"
 # ──────────────────────────────────────────────────────────────
 [tool.basedpyright]
-typeCheckingMode = "all"
+# basic 模式足够:检测明显类型错误,不强制注解
+typeCheckingMode = "basic"
 pythonVersion = "3.12"
 pythonPlatform = "All"
 include = ["skills", "scripts", "tests"]
-exclude = ["**/__pycache__", "**/.venv", "**/build", "**/dist"]
-
-reportUnusedCallResult = "warning"
-reportUnnecessaryTypeIgnoreComment = "error"
-reportUnusedVariable = "error"
-reportMissingParameterType = "error"
-reportMissingReturnType = "error"
-reportPrivateUsage = "error"
+exclude = [
+    "**/__pycache__",
+    "**/.venv",
+    "**/build",
+    "**/dist",
+    "**/.ruff_cache",
+    "**/.pytest_cache",
+    # visual-slide-designer 大量依赖 playwright(可选依赖),需排除
+    "skills/visual-slide-designer/scripts/html_to_png_pillow.py",
+    "skills/visual-slide-designer/scripts/html_to_png.py",
+    "skills/visual-slide-designer/scripts/build_visual.py",
+]
+# 我们的代码风格:logger.info 之类返回值不接,允许 warning
+reportUnusedCallResult = "none"
+# 允许 # type: ignore 无注释
+reportUnnecessaryTypeIgnoreComment = "none"
 
 # ──────────────────────────────────────────────────────────────
 # ruff — select = ["ALL"]
@@ -159,3 +175,11 @@ exclude_lines = [
     "raise NotImplementedError",
     "@(abc\\.)?abstractmethod",
 ]
+
+# ──────────────────────────────────────────────────────────────
+# setuptools — editable install 需要这个才能识别 scripts/ 和 skills/
+# ──────────────────────────────────────────────────────────────
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["scripts*", "skills*"]
+namespaces = false

@@ -41,7 +41,7 @@ def main() -> None:
     title = args.title
     out_path = Path(args.output)
 
-    with open(csv_path, encoding="utf-8") as f:
+    with Path(csv_path).open(encoding="utf-8") as f:
         reader = csv.reader(f)
         rows = list(reader)
     headers = rows[0]

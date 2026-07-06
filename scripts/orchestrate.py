@@ -243,7 +243,7 @@ def convert_outline_to_storyline(outline_path):
     for pn, title, body in raw_pages:
         # 在 body 中找 "核心要点:" 后面的 2 空格缩进 bullet
         pts_match = re.search(r"-\s*核心要点:\s*\n((?:\s{2,}-\s+.+\n?)+)", body)
-        if pts_match:  # noqa: SIM103,SIM108,SIM102  # noqa: SIM108
+        if pts_match:  # noqa: SIM108
             pts = re.findall(r"\s{2,}-\s+(.+)", pts_match.group(1))
         else:
             pts = []

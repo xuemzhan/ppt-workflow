@@ -84,7 +84,7 @@ def load_spec(path: str | Path) -> dict[str, Any]:
     """
     data = load_json(path)
     if not isinstance(data, dict):
-        raise ValueError(f"Spec must be a JSON object, got {type(data).__name__}")
+        raise TypeError(f"Spec must be a JSON object, got {type(data).__name__}")
     if "slides" not in data:
         raise ValueError("Spec must contain a 'slides' key")
     return data

@@ -45,15 +45,20 @@ def create_base_parser(
     return parser
 
 
-def parse_args(argv: Sequence[str] | None = None, **kwargs: bool) -> argparse.Namespace:
+def parse_args(
+    argv: Sequence[str] | None = None,
+    description: str = "",
+    **kwargs: bool,
+) -> argparse.Namespace:
     """Parse command-line arguments with standard configuration.
 
     Args:
         argv: Command-line arguments (defaults to sys.argv[1:]).
-        **kwargs: Passed to create_base_parser.
+        description: Program description (passed to create_base_parser).
+        **kwargs: Standard flags (add_input, add_output, etc.).
 
     Returns:
         Parsed arguments namespace.
     """
-    parser = create_base_parser(**kwargs)
+    parser = create_base_parser(description, **kwargs)
     return parser.parse_args(argv)

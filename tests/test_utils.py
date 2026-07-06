@@ -3,9 +3,13 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
+from typing import TYPE_CHECKING
 
 import pytest
+
+if TYPE_CHECKING:
+    from pathlib import Path
+
 from skills.shared.utils import (
     ensure_dir,
     find_script,
@@ -100,7 +104,7 @@ class TestLoadSpec:
     def test_not_a_dict(self, tmp_path: Path) -> None:
         spec_file = tmp_path / "spec.json"
         spec_file.write_text(json.dumps([1, 2, 3]))
-        with pytest.raises(ValueError, match="must be a JSON object"):
+        with pytest.raises(TypeError, match="must be a JSON object"):
             load_spec(spec_file)
 
 
