@@ -59,7 +59,8 @@ def main() -> None:
     n = 0
     for idx, slide in enumerate(prs.slides, 1):
         if idx in notes:
-            slide.notes_slide.notes_text_frame.text = notes[idx]["body"]
+            notes_slide = slide.notes_slide
+            notes_slide.notes_text_frame.text = notes[idx]["body"]
             n += 1
             logger.info("页 %d: 已写入备注", idx)
 

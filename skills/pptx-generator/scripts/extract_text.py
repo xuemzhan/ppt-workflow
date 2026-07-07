@@ -36,7 +36,8 @@ def main() -> None:
                     if t.strip():
                         print(t)
         if slide.has_notes_slide:
-            notes = slide.notes_slide.notes_text_frame.text
+            notes_slide = slide.notes_slide
+            notes = notes_slide.notes_text_frame.text
             if notes.strip():
                 print(f"  [备注] {notes}")
 

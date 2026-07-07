@@ -159,20 +159,20 @@ def test_qa_detects_issues(tmp_path):
     """qa_check.py 构造含问题的 pptx,应检出占位词。"""
     bad_pptx = tmp_path / "bad.pptx"
     prs = Presentation()
-    prs.slide_width = 9144000
-    prs.slide_height = 5143500
+    prs.slide_width = 9144000  # type: ignore[reportAttributeAccessIssue]
+    prs.slide_height = 5143500  # type: ignore[reportAttributeAccessIssue]
     # 封面
     s1 = prs.slides.add_slide(prs.slide_layouts[6])
-    s1.shapes.add_textbox(0, 0, 9144000, 1000000).text_frame.text = "Cover"
+    s1.shapes.add_textbox(0, 0, 9144000, 1000000)  # type: ignore[reportArgumentType].text_frame.text = "Cover"
     # 问题页:占位词
     s2 = prs.slides.add_slide(prs.slide_layouts[6])
-    s2.shapes.add_textbox(0, 0, 9144000, 1000000).text_frame.text = "对照 1"
+    s2.shapes.add_textbox(0, 0, 9144000, 1000000)  # type: ignore[reportArgumentType].text_frame.text = "对照 1"
     # 干净页
     s3 = prs.slides.add_slide(prs.slide_layouts[6])
-    s3.shapes.add_textbox(0, 0, 9144000, 1000000).text_frame.text = "Normal"
+    s3.shapes.add_textbox(0, 0, 9144000, 1000000)  # type: ignore[reportArgumentType].text_frame.text = "Normal"
     # 封底
     s4 = prs.slides.add_slide(prs.slide_layouts[6])
-    s4.shapes.add_textbox(0, 0, 9144000, 1000000).text_frame.text = "Thanks"
+    s4.shapes.add_textbox(0, 0, 9144000, 1000000)  # type: ignore[reportArgumentType].text_frame.text = "Thanks"
     prs.save(str(bad_pptx))
 
     qa_report = tmp_path / "qa.md"

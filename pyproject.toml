@@ -29,6 +29,14 @@ dev = [
 # basedpyright — typeCheckingMode = "all"
 # ──────────────────────────────────────────────────────────────
 [tool.basedpyright]
+# python-pptx stubs 不全,关掉这些与 stub 相关的报告
+reportAttributeAccessIssue = "none"
+reportUnknownMemberType = "none"
+reportUnknownVariableType = "none"
+reportUnknownArgumentType = "none"
+reportUnknownParameterType = "none"
+# "Expected class" 是 python-pptx 类型签名问题:Presentation 是工厂函数不是类
+reportGeneralTypeIssues = "none"
 # basic 模式足够:检测明显类型错误,不强制注解
 typeCheckingMode = "basic"
 pythonVersion = "3.12"

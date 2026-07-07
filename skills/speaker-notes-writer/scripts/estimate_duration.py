@@ -54,7 +54,10 @@ def estimate_from_pptx(pptx_path):
     for i, slide in enumerate(prs.slides, 1):
         notes = ""
         if slide.has_notes_slide:
-            notes = slide.notes_slide.notes_text_frame.text
+            notes_slide = slide.notes_slide
+
+
+            notes = notes_slide.notes_text_frame.text
         clean = re.sub(r"[*#>_-]+", "", notes)
         cn = len(re.findall(r"[\u4e00-\u9fff]", clean))
         en = len(re.findall(r"\b[a-zA-Z]+\b", clean))

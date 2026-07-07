@@ -107,6 +107,7 @@ def add_title(prs: Presentation, theme: dict[str, str], s: dict[str, Any]) -> No
 
 
 def add_section(prs: Presentation, theme: dict[str, str], s: dict[str, Any]) -> None:
+    # type: ignore[reportGeneralTypeIssues]
     blank = prs.slides.add_slide(prs.slide_layouts[6])
     fill = blank.background.fill
     fill.solid()
@@ -142,6 +143,7 @@ def add_section(prs: Presentation, theme: dict[str, str], s: dict[str, Any]) -> 
 
 
 def add_bullet(prs: Presentation, theme: dict[str, str], s: dict[str, Any]) -> None:
+    # type: ignore[reportGeneralTypeIssues]
     blank = prs.slides.add_slide(prs.slide_layouts[6])
     tx = blank.shapes.add_textbox(Inches(0.5), Inches(0.4), Inches(12.33), Inches(1.2))
     tf = tx.text_frame
@@ -235,6 +237,7 @@ def add_two_column(prs, theme, s):
 
 
 def add_stat(prs: Presentation, theme: dict[str, str], s: dict[str, Any]) -> None:
+    # type: ignore[reportGeneralTypeIssues]
     blank = prs.slides.add_slide(prs.slide_layouts[6])
     tx = blank.shapes.add_textbox(Inches(0.5), Inches(0.4), Inches(12.33), Inches(1.2))
     tf = tx.text_frame
@@ -296,6 +299,7 @@ def add_stat(prs: Presentation, theme: dict[str, str], s: dict[str, Any]) -> Non
 
 
 def add_quote(prs: Presentation, theme: dict[str, str], s: dict[str, Any]) -> None:
+    # type: ignore[reportGeneralTypeIssues]
     blank = prs.slides.add_slide(prs.slide_layouts[6])
     fill = blank.background.fill
     fill.solid()
@@ -328,6 +332,7 @@ def add_quote(prs: Presentation, theme: dict[str, str], s: dict[str, Any]) -> No
 
 
 def add_process(prs: Presentation, theme: dict[str, str], s: dict[str, Any]) -> None:
+    # type: ignore[reportGeneralTypeIssues]
     blank = prs.slides.add_slide(prs.slide_layouts[6])
     tx = blank.shapes.add_textbox(Inches(0.5), Inches(0.4), Inches(12.33), Inches(1.2))
     tf = tx.text_frame
@@ -460,6 +465,7 @@ def add_table(prs, theme, s):
 
 
 def add_thank_you(prs: Presentation, theme: dict[str, str], s: dict[str, Any]) -> None:
+    # type: ignore[reportGeneralTypeIssues]
     blank = prs.slides.add_slide(prs.slide_layouts[6])
     fill = blank.background.fill
     fill.solid()
@@ -493,6 +499,7 @@ def add_thank_you(prs: Presentation, theme: dict[str, str], s: dict[str, Any]) -
 
 
 def add_timeline(prs: Presentation, theme: dict[str, str], s: dict[str, Any]) -> None:
+    # type: ignore[reportGeneralTypeIssues]
     blank = prs.slides.add_slide(prs.slide_layouts[6])
     tx = blank.shapes.add_textbox(Inches(0.5), Inches(0.4), Inches(12.33), Inches(1.2))
     tf = tx.text_frame

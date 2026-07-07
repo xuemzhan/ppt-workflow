@@ -156,7 +156,10 @@ def check_deck(pptx_path):
 
         has_note = False
         if slide.has_notes_slide:
-            notes = slide.notes_slide.notes_text_frame.text.strip()
+            notes_slide = slide.notes_slide
+
+
+            notes = notes_slide.notes_text_frame.text.strip()
             has_note = bool(notes)
         if 2 <= idx <= total_slides - 1 and not has_note:
             issues.append(
