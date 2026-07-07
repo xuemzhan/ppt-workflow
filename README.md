@@ -31,30 +31,45 @@
 
 ```
 ppt-workflow/
-├── README.md                       # 本文件
-├── docs/                           # 进阶文档
-│   ├── 01_快速开始.md
-│   ├── 02_各 Skill 详解.md
-│   ├── 03_常见场景案例.md
-│   └── 04_安全原则与风险评估.md
-├── skills/                         # 10 个 Skill
-│   ├── ppt-workflow-orchestrator/
-│   ├── ppt-outline-builder/
-│   ├── deck-storyline-designer/
-│   ├── markdown-to-slides/
-│   ├── pptx-generator/
-│   ├── template-layout-deck/
-│   ├── visual-slide-designer/
-│   ├── chart-slide-maker/
-│   ├── academic-pptx/
-│   ├── speaker-notes-writer/
-│   └── deck-review-publisher/
+├── README.md                            # 本文件
+├── pyproject.toml                       # ruff + basedpyright + pytest + setuptools
+├── .github/workflows/test.yml           # GitHub Actions CI
+├── .pre-commit-config.yaml              # pre-commit hooks
+├── .gitignore                           # Git 忽略规则
+├── skills/                              # 11 个 Skill + shared
+│   ├── shared/                          # 公共模块(★)
+│   │   ├── utils.py                     # load_json / write_json / hex_to_rgb
+│   │   ├── fonts.py                     # 跨平台字体路径
+│   │   ├── logging_config.py            # 统一日志
+│   │   ├── types.py                     # 数据契约
+│   │   └── cli.py                       # argparse 基类
+│   ├── ppt-workflow-orchestrator/       # 文档型 Skill(无脚本)
+│   ├── ppt-outline-builder/             # 1 脚本
+│   ├── deck-storyline-designer/         # 1
+│   ├── markdown-to-slides/              # 1
+│   ├── pptx-generator/                 # 5(spec_to_pptx / extract_text / merge / split / validate_spec)
+│   ├── template-layout-deck/           # 2
+│   ├── visual-slide-designer/          # 3
+│   ├── chart-slide-maker/              # 3
+│   ├── academic-pptx/                  # 1
+│   ├── speaker-notes-writer/            # 2
+│   └── deck-review-publisher/          # 4
 ├── scripts/
-│   └── orchestrate.py              # 总编排脚本
-├── templates/                      # 通用模板
-│   └── theme/                      # 主题色板
-└── examples/                       # 示例
-    └── sample_deck/
+│   ├── __init__.py                     # 标记为 package
+│   └── orchestrate.py                  # 总编排(10 步流水线)
+├── tests/                              # 测试
+│   ├── conftest.py                     # 共享 fixture
+│   ├── test_utils.py                   # 16 个
+│   ├── test_fonts.py                   # 4 个
+│   ├── test_types.py                   # 12 个
+│   └── test_e2e.py                     # 5 个端到端
+└── examples/                           # 样例数据
+    ├── quickstart.py                   # 一键体验
+    ├── slides_template.json             # AI 集成模板
+    ├── company_template.pptx
+    ├── demo_input/                     # 一键 demo 输入
+    ├── demo_output/                    # 一键 demo 输出(由 quickstart 生成)
+    └── sample_deck/                    # 完整示例
         ├── input/
         └── output/
 ```
@@ -350,18 +365,6 @@ python skills/template-layout-deck/scripts/apply_template.py \
     examples/sample_deck/output/deck_templated.pptx
 ```
 
-## 十六、Roadmap
-
-- [x] ~~接 LLM 自动生成 speaker_notes.md~~ → 已实现从 outline 自动派生草稿
-- [x] ~~QA 报告扩展~~ → 已支持 5 类问题检测
-- [x] ~~幂等性/错误传递~~ → 已实现
-- [x] ~~数量级自适应图表~~ → 已实现
-- [x] ~~缩略图零 LibreOffice 方案~~ → 已实现 render_thumbnails.py
-- [ ] 接 LLM 真正生成 slides.json(从主题+受众)
-- [ ] 支持 Marp / Pandoc 路径
-- [ ] 可视化工作流编辑器
-- [ ] Web UI(Hermes Agent 集成)
-
 ## 十七、项目结构
 
 ```
@@ -466,15 +469,71 @@ python -m pytest tests/test_e2e.py -v
 
 ## 十九、Roadmap
 
-- [x] ~~接 LLM 自动生成 speaker_notes.md~~ → 已实现从 outline 自动派生草稿
-- [x] ~~QA 报告扩展~~ → 已支持 5 类问题检测
-- [x] ~~幂等性/错误传递~~ → 已实现
-- [x] ~~数量级自适应图表~~ → 已实现
-- [x] ~~缩略图零 LibreOffice 方案~~ → 已实现 render_thumbnails.py
-- [x] ~~shared 模块接入生产脚本~~ → 5 个高频脚本已接入(v1.3)
-- [x] ~~集成测试~~ → 5 个端到端测试(37 总测试)
-- [x] ~~统一 logger 配置~~ → 所有脚本用 setup_logging
+### v1.0 → v1.4 已完成(v1.4 状态)
+
+- [x] 10 Skill 流水线 + 1 orchestrator
+- [x] `skills/shared/` 公共模块(utils / fonts / logging_config / types / cli)
+- [x] 所有 25 个生产脚本接 shared(100% 接入率)
+- [x] 幂等性 + 错误传递(任一关键步失败立即终止)
+- [x] 数量级自适应图表(>50x 自动对数刻度)
+- [x] 5 类 QA 问题检测(占位符 / 中性标题 / 重复文本 / 字号 / 备注缺失)
+- [x] 缩略图零 LibreOffice 方案(render_thumbnails.py)
+- [x] 真实讲稿自动生成(从 outline 派生)
+- [x] 模板套用(analyze + apply)
+- [x] 视觉页 5 种模板(hero / chapter / quote / methodology / flow)
+- [x] visual-slide-designer 降级链路(playwright → chrome → Pillow)
+- [x] CLI 全局命令:`ppt-workflow` + `ppt-workflow-list`
+- [x] GitHub Actions CI(3 jobs: test / lint / smoke)
+- [x] pre-commit hooks(ruff check / format / pytest)
+- [x] ruff 0 错
+- [x] pytest 37/37 通过
+- [x] basedpyright 4 错(都是误报)
+- [x] spec.json Step 4.5 schema 验证
+- [x] 4 个 None check 真 bug 修复
+- [x] GitHub 公开仓库:`https://github.com/xuemzhan/ppt-workflow`
+
+### 待办(下一步)
+
 - [ ] 接 LLM 真正生成 slides.json(从主题+受众)
 - [ ] 支持 Marp / Pandoc 路径
-- [ ] 可视化工作流编辑器
-- [ ] Web UI(Hermes Agent 集成)
+- [ ] 可视化工作流编辑器(Web UI)
+- [ ] Hermes Agent 深度集成(自动从对话生成 PPT)
+- [ ] 接入 PPTX → PDF 真实转换(需 LibreOffice)
+- [ ] 接入 Marp CLI(可选依赖)
+
+## 二十、CLI 全局命令
+
+`pip install -e .` 安装后,以下命令在 PATH 中可用:
+
+```bash
+# 列出所有可用 Skill
+ppt-workflow-list
+
+# 跑完整流水线
+ppt-workflow --input input_dir --output output_dir
+
+# 强制全量重跑
+ppt-workflow --input input_dir --output output_dir --force
+
+# 只看 help
+ppt-workflow --help
+```
+
+安装位置(Windows):
+- 脚本:`%APPDATA%\Python\Python314\Scripts\ppt-workflow.exe`
+- Python 路径已自动加入 user site-packages
+
+如果 `ppt-workflow` 命令未识别,把 `%APPDATA%\Python\Python314\Scripts` 加到 PATH(已通过 `setx PATH` 永久化)。
+
+## 二十一、v1.4 相比 v1.3 的变化
+
+- **CI/CD** — 新增 GitHub Actions(`.github/workflows/test.yml`),PR 触发 test + lint + smoke
+- **pre-commit** — 新增 5 个 hooks(ruff check / format / pytest / basedpyright)
+- **CLI 入口** — `ppt-workflow` + `ppt-workflow-list` 全局命令
+- **零错误 lint** — ruff 0 错(从 929 修到 0)
+- **37/37 测试** — 32 单元 + 5 集成
+- **basedpyright basic** — 1229 → 4 错(都是 python-pptx stub 限制)
+- **4 个 None check bug 修复** — `slide.notes_slide` 可能为 None
+- **setx PATH** — 永久让 `ppt-workflow` 命令可全局使用
+
+详细 commit 历史见 `git log`,最新 commit: `872da8e`。
